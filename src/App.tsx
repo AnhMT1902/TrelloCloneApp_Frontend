@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import {Login} from "./component/auth/Login";
+import {Register} from "./component/auth/Register";
+import {RequiredLogin} from "./component/auth/RequiredLogin";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Routes>
+                <Route path={"auth/signup"} element={<Register/>}></Route>
+                <Route path={"auth/login"} element={<Login/>}></Route>
+                <Route path={"/required"} element={<RequiredLogin/>}></Route>
+            </Routes>
+        </>);
 }
 
 export default App;
