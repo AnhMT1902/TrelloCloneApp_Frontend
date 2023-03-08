@@ -1,11 +1,11 @@
-import {HomeStyled} from "../style/Home.Styled";
-import {Navbar} from "./navbar/Navbar";
-import {BoardTitle} from "./boards/BoardTitle";
+import {HomeStyled} from "../../style/Home.Styled";
+import {Navbar} from "../navbar/Navbar";
+import {BoardTitle} from "./BoardTitle";
 import {Outlet} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllBoardByUser} from "../redux/actions/BoardAction";
-import {RequiredLogin} from "./auth/RequiredLogin";
+import {getAllBoardByUser} from "../../redux/actions/BoardAction";
+import {RequiredLogin} from "../auth/RequiredLogin";
 
 export function Home() {
     const dispatch = useDispatch();
@@ -36,8 +36,8 @@ export function Home() {
                             }}>
                                 <span className={'your__broads'}>Your Boards</span>
                             </div>
-                            {listBoard ? listBoard.map((item: any) => (
-                                <BoardTitle title={item.title} id={item._id}/>)) : <div>Loading...</div>}
+                            {listBoard ? listBoard.map((item: any, index: number) => (
+                                <BoardTitle key={index} title={item.title} id={item._id}/>)) : <div>Loading...</div>}
                         </div>
                         <div className="content">
                             <Outlet/>
