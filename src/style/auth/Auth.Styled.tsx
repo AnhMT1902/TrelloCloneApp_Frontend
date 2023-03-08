@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 export const AuthStyled = styled.div`
@@ -39,6 +38,7 @@ export const AuthStyled = styled.div`
   }
 
   .form__input {
+    color: #000000;
     width: calc(100% - 16px);
     padding: 8px 6px;
     margin-bottom: 10px;
@@ -98,5 +98,15 @@ export const AuthStyled = styled.div`
 
   .form__button__disable:hover {
     cursor: no-drop;
+  }
+
+  .p__error {
+    border-radius: 3px;
+    background: #eb5a46;
+    color: #fbedeb;
+    font-size: 14px;
+    display: inline-block;
+    padding: .5em 1em;
+    width: calc(100% - 30px);
   }
 `

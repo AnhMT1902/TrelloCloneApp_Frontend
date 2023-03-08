@@ -1,12 +1,12 @@
-import {RequiredLoginStyled} from "../../style/RequiredLogin.Styled";
-import {Navbar} from "../navbar/navbar";
+import {RequiredLoginStyled} from "../../style/auth/RequiredLogin.Styled";
+import {NavbarDefault} from "../navbar/NavbarDefault";
 import {Link} from "react-router-dom";
 
 export function RequiredLogin() {
     return (
         <RequiredLoginStyled>
             <div className="container">
-                <Navbar/>
+                <NavbarDefault/>
                 <div className={'content-wrapper'}>
                     <div>
                         <h1>Sign up to see this board</h1>

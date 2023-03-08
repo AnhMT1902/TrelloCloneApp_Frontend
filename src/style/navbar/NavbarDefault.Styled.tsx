@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavbarStyled = styled.div`
+export const NavbarDefaultStyled = styled.div`
   .nav {
     height: 60px;
     align-items: stretch;

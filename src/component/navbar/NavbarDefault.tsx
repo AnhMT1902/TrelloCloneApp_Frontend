@@ -1,11 +1,9 @@
-import {NavbarStyled} from "../../style/Navbar.Styled";
-import {useState} from "react";
+import {NavbarDefaultStyled} from "../../style/navbar/NavbarDefault.Styled";
 import {Link} from "react-router-dom";
 
-export function Navbar() {
-    const [checkLogin, setCheckLogin] = useState(true);
+export function NavbarDefault() {
     return (
-        <NavbarStyled>
+        <NavbarDefaultStyled>
             <div className={"nav"}>
                 <div className="nav__left">
                     <div className="logo__link">
@@ -54,6 +52,6 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
-        </NavbarStyled>
+        </NavbarDefaultStyled>
     )
 }
