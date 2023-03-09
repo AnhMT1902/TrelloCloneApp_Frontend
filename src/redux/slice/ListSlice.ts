@@ -11,7 +11,6 @@ const ListSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(addList.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.currentList = action.payload
         });
     }

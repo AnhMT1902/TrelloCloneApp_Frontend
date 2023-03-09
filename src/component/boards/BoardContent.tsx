@@ -13,7 +13,7 @@ export function BoardContent() {
     return (
         <BoardContentStyled>
             <div className={'main'}>
-                <List title={"minh anh"} id={"abc12434"} cards={[{content: "minhanh", id: "2131241231"}]}/>
+                <List title={"minh anh"} id={"abc12434"} cards={[{detail: "minhanh", id: "2131241231"}]}/>
                 <AddList/>
             </div>
         </BoardContentStyled>

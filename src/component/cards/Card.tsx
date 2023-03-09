@@ -1,16 +1,16 @@
-import {IAddCard, ICard} from "./Interface/Card.Interface";
+import {IAddCard, ICard, IUpdateCard} from "./Interface/Card.Interface";
 import {CardStyled} from "../../style/cards/Card.Styled";
 import {useState} from "react";
 import {Field, Form, Formik} from "formik";
 
-export function Card({content, id}: ICard) {
-    const [initialCard, setInitialCard] = useState<IAddCard>({content: content});
+export function Card({detail, id}: ICard) {
+    const [initialCard, setInitialCard] = useState({detail: detail});
     const [checkCard, setCheckCard] = useState<boolean>(false);
     const handleClick = (check: boolean) => {
         setCheckCard(!check)
     }
 
-    const handleEdit = (card: IAddCard) => {
+    const handleEdit = (card: any) => {
 
     }
     return (
@@ -22,12 +22,12 @@ export function Card({content, id}: ICard) {
                             <Form>
                                 <Field className={'input__title'} key={id} component={"textarea"}
                                        placeholder={'Enter a title for this card...'}
-                                       name={"content"}/>
+                                       name={"detail"}/>
                             </Form>
                         </Formik>
                     </div> :
                     <span className="main__card__content">
-                    {content}
+                    {detail}
                 </span>}
                 <div className={'main__card__edit'}>
                     {checkCard ?

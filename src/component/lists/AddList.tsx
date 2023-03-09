@@ -8,7 +8,7 @@ import {useLocation} from "react-router-dom";
 
 export function AddList() {
     const dispatch = useDispatch<any>();
-    let id = useLocation().pathname.split("/")[1];
+    let idBoard = useLocation().pathname.split("/")[1];
     let initialList = {
         title: ""
     }
@@ -20,7 +20,7 @@ export function AddList() {
 
     const handleSubmit = (values: ICreateList) => {
         values.title = values.title.trim();
-        values.broad = id;
+        values.broad = idBoard;
         dispatch(addList(values));
     }
 

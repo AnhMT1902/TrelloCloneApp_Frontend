@@ -15,3 +15,7 @@ export interface ICreateList {
     title: string;
     broad?: string;
 }
+
+export interface IdList {
+    id: string;
+}

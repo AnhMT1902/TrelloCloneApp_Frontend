@@ -1,8 +1,15 @@
 export interface ICard {
-    content?: string;
-    id?: string;
+    detail?: string;
+    id?: string
+    list?: string;
 }
 
 export interface IAddCard {
-    content?: string;
+    detail: string;
+    lists: string;
+    broad: string;
+}
+
+export interface IUpdateCard {
+    detail: string;
 }

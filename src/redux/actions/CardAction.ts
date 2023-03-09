@@ -1,13 +1,14 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const addList: any = createAsyncThunk(
-    '/list/create',
-    async (list) => {
+export const addCard: any = createAsyncThunk(
+    '/card/create',
+    async (card) => {
         try {
             const token = localStorage.getItem('token');
             if (token) {
-                const res = await axios.post('http://localhost:8080/list' , list, {
+                console.log(card)
+                const res = await axios.post('http://localhost:8080/card', card, {
                     headers: {'Authorization': 'Bearer ' + token},
                 })
                 return res.data
