@@ -1,11 +1,11 @@
 import {NavbarStyled} from "../../style/navbar/Navbar.Styled";
 import {Link} from "react-router-dom";
-import {useState} from "react";
+import {AddBoard} from "../boards/AddBoard";
 
 export function Navbar() {
     let nameUser: string | null = localStorage.getItem("name");
-    let [name, setName] = useState(nameUser ? nameUser[0].toUpperCase() : null);
-
+    let token: string | null = localStorage.getItem("token");
+    let name = nameUser ? nameUser[0].toUpperCase() : null;
     return (
         <NavbarStyled>
             <div className="main">
@@ -29,7 +29,7 @@ export function Navbar() {
                         <button className={"nav__button"}><span>Template</span></button>
                     </div>
                     <div className={"nav__link"}>
-                        <button className={"nav__button nav__button__create"}><span>Create</span></button>
+                        <AddBoard token={token}/>
                     </div>
                 </div>
                 <div className="nav__left">
@@ -47,8 +47,6 @@ export function Navbar() {
                             </button>
                         </div>
                         : null}
-
-
                 </div>
             </div>
         </NavbarStyled>

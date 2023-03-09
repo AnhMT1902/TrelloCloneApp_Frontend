@@ -82,4 +82,29 @@ export const NavbarStyled = styled.div`
     border: 2px solid rgba(224, 223, 223, 0.78);
     cursor: pointer;
   }
+
+  .main__button__close {
+    margin-left: 10px;
+  }
+
+  .main__input__create {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 4px 6px;
+    color: var(--ds-text-subtle, #5e6c84);
+  }
+
+  .error__valid {
+    padding: 2px 6px;
+    border: 2px solid red;
+    background: #ef9797;
+  }
+
+  .error__valid:focus {
+    border: 2px solid red;
+  }
+
+  .error__valid:hover {
+    border: 2px solid red;
+  }
 `;

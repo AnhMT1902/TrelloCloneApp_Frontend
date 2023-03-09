@@ -27,7 +27,7 @@ export const AddListStyled = styled.div`
     flex: 0 0 auto;
     width: 271px;
     max-width: 271px;
-    height: 80px; 
+    height: 80px;
     background: #ebecf0;
     border-radius: 3px;
     margin-top: 10px;
@@ -53,15 +53,22 @@ export const AddListStyled = styled.div`
     min-height: 32px;
     padding-bottom: 4px;
     padding-top: 4px;
-    background-color: var(--ds-background-brand-bold,#0079bf);
+    background-color: var(--ds-background-brand-bold, #0079bf);
     border: none;
     box-shadow: none;
-    color: var(--ds-text-inverse,#fff);
+    color: var(--ds-text-inverse, #fff);
     border-radius: 3px;
     margin: 0 4px 4px 4px;
   }
+
   .button__list__submit:hover {
     background: #026AA7;
     cursor: pointer;
+  }
+
+  .plus {
+    width: 30px;
+    font-size: 27px;
+    margin-bottom: 7px;
   }
 `

@@ -13,4 +13,5 @@ export interface ITitleList {
 
 export interface ICreateList {
     title: string;
+    broad?: string;
 }

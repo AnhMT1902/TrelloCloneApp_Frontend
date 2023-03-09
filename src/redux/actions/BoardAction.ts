@@ -10,7 +10,25 @@ export const getAllBoardByUser: any = createAsyncThunk(
             })
             return res.data
         } catch ({response: {data}}) {
-            console.log(data, "errr")
+            return data
+        }
+    }
+);
+
+export const addBoard: any = createAsyncThunk(
+    '/board/create',
+    async (board: any) => {
+        try {
+            console.log(board)
+            const token = localStorage.getItem('token');
+            if (token) {
+                const res = await axios.post('http://localhost:8080/broad', board, {
+                    headers: {'Authorization': 'Bearer ' + token},
+                })
+                return res.data
+            }
+            return {message: 'Unauthorized'}
+        } catch ({response: {data}}) {
             return data
         }
     }
