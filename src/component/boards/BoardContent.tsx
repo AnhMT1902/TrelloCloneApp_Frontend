@@ -1,20 +1,34 @@
 import {BoardContentStyled} from "../../style/boards/BoardContent.Styled";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 import {useEffect} from "react";
-import {List} from "../lists/List";
-import {AddList} from "../lists/AddList";
-
+import {useDispatch, useSelector} from "react-redux";
+import {getOneBoard} from "../../redux/actions/BoardAction";
+import {RenderList} from "../lists/RenderList";
 
 export function BoardContent() {
-    const {id} = useParams<{ id: string }>();
+    const id = useLocation().pathname.split("/")[1];
+    const dispatch = useDispatch();
+    let listCreate = useSelector((state: any) => {
+        return state.list.listCreated
+    });
     useEffect(() => {
-        document.title = `${id} | Trello`;
-    })
+        console.log(id)
+        dispatch(getOneBoard(id))
+    }, [id, listCreate]);
+
+    let boardFind: any = useSelector<any>(state => {
+        state.board.boardFind.title ?
+            document.title = `${state.board.boardFind.title} | Trello`
+            : document.title = 'Trello';
+        return state.board.boardFind
+    });
+
     return (
         <BoardContentStyled>
-            <div className={'main'}>
-                <List title={"minh anh"} id={"abc12434"} cards={[{detail: "minhanh", id: "2131241231"}]}/>
-                <AddList/>
+            <div className='main'>
+                {boardFind.lists ?
+                    <RenderList lists={boardFind.lists}/>
+                    : null}
             </div>
         </BoardContentStyled>
     )

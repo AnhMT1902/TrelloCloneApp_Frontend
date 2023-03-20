@@ -13,7 +13,7 @@ export const BoardContentStyled = styled.div`
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px;
     width: 10px;
-    height: 10px;
+    height: 9px;
   }
 
   .main::-webkit-scrollbar-thumb {

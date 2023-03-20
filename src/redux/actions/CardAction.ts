@@ -7,7 +7,6 @@ export const addCard: any = createAsyncThunk(
         try {
             const token = localStorage.getItem('token');
             if (token) {
-                console.log(card)
                 const res = await axios.post('http://localhost:8080/card', card, {
                     headers: {'Authorization': 'Bearer ' + token},
                 })

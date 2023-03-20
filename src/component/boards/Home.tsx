@@ -1,13 +1,14 @@
 import {HomeStyled} from "../../style/Home.Styled";
 import {Navbar} from "../navbar/Navbar";
 import {BoardTitle} from "./BoardTitle";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getAllBoardByUser} from "../../redux/actions/BoardAction";
 import {RequiredLogin} from "../auth/RequiredLogin";
 
 export function Home() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     let [checkLogin, setCheckLogin] = useState(true);
 
@@ -18,6 +19,9 @@ export function Home() {
     }, [dispatch])
 
     let listBoard = useSelector((state: any) => {
+        if(state.board.currentBoard.statusCode === 403) {
+            navigate('/auth/login');
+        }
         return state.board.currentBoard
     });
 

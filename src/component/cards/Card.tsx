@@ -3,7 +3,7 @@ import {CardStyled} from "../../style/cards/Card.Styled";
 import {useState} from "react";
 import {Field, Form, Formik} from "formik";
 
-export function Card({detail, id}: ICard) {
+export function Card({detail, _id, provided}: ICard) {
     const [initialCard, setInitialCard] = useState({detail: detail});
     const [checkCard, setCheckCard] = useState<boolean>(false);
     const handleClick = (check: boolean) => {
@@ -15,12 +15,12 @@ export function Card({detail, id}: ICard) {
     }
     return (
         <CardStyled>
-            <div className="main__card">
+            <div {...provided.draggableProps} className="main__card">
                 {checkCard ?
                     <div>
                         <Formik initialValues={initialCard} onSubmit={(values) => handleEdit(values)}>
                             <Form>
-                                <Field className={'input__title'} key={id} component={"textarea"}
+                                <Field className={'input__title'} key={_id} component={"textarea"}
                                        placeholder={'Enter a title for this card...'}
                                        name={"detail"}/>
                             </Form>

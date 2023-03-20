@@ -17,7 +17,7 @@ function App() {
                 <Route path={"/required"} element={<RequiredLogin/>}/>
                 <Route path={''} element={<Home/>}>
                     <Route path={''} element={<BackgroundHome/>}></Route>
-                    <Route path={'/:id'} element={<BoardContent/>}/>
+                    <Route path={'/:_id'} element={<BoardContent/>}/>
                 </Route>
             </Routes>
         </>);

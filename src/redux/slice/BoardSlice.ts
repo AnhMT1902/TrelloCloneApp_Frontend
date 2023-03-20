@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit"
-import {addBoard, getAllBoardByUser} from "../actions/BoardAction";
+import {addBoard, getAllBoardByUser, getOneBoard} from "../actions/BoardAction";
 
 const initialState = {
-    currentBoard: []
+    currentBoard: [],
+    boardFind: {}
 }
 const boardSlice = createSlice({
     name: "board",
@@ -14,6 +15,9 @@ const boardSlice = createSlice({
         });
         builder.addCase(addBoard.fulfilled, (state: any, action) => {
             state.currentBoard = [...state.currentBoard, action.payload]
+        })
+        builder.addCase(getOneBoard.fulfilled, (state: any, action) => {
+            state.boardFind = action.payload
         })
     }
 })

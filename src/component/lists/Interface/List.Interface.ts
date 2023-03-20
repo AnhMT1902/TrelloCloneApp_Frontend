@@ -4,6 +4,7 @@ export interface IList {
     title: string;
     id: string;
     cards: ICard[] | [];
+    provided: any
 }
 
 export interface ITitleList {

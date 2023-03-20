@@ -2,7 +2,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {addCard} from "../actions/CardAction";
 
 const initialState = {
-    currentCard: []
+    currentCard: [],
+    cardAdd: {}
 }
 const CardSlice = createSlice({
     name: "card",
@@ -10,7 +11,8 @@ const CardSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(addCard.fulfilled, (state, action) => {
-            console.log(action.payload)
+            console.log(action.payload, 'action.')
+            state.cardAdd = action.payload;
         })
     }
 })

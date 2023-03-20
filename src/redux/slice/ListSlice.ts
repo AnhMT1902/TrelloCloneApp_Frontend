@@ -2,7 +2,8 @@ import {createSlice} from "@reduxjs/toolkit";
 import {addList} from "../actions/ListAction";
 
 const initialState = {
-    currentList: []
+    currentList: [],
+    listCreated: {}
 }
 
 const ListSlice = createSlice({
@@ -11,7 +12,7 @@ const ListSlice = createSlice({
     reducers: {},
     extraReducers: builder => {
         builder.addCase(addList.fulfilled, (state, action) => {
-            state.currentList = action.payload
+            state.listCreated = action.payload
         });
     }
 })

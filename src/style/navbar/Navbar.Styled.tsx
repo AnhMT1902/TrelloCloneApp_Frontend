@@ -107,4 +107,31 @@ export const NavbarStyled = styled.div`
   .error__valid:hover {
     border: 2px solid red;
   }
+
+  .dropdown__logout {
+    z-index: 10000000;
+    position: absolute;
+    background: rgba(235, 236, 240, 0.91);
+    width: 80px;
+    height: auto;
+    margin-left: -50px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 8px;
+    padding-top: 8px;
+  }
+
+  .button__logout {
+    color: #5e6c84;
+    border: none;
+    background: none;
+  }
+
+  .button__logout:hover {
+    color: #383a3d;
+    cursor: pointer;
+  }
 `;

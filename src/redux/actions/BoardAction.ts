@@ -33,3 +33,22 @@ export const addBoard: any = createAsyncThunk(
         }
     }
 )
+
+export const getOneBoard: any = createAsyncThunk(
+    '/board/_id',
+    async (id: string) => {
+        try {
+
+            const token = localStorage.getItem('token');
+            if (token) {
+                const res = await axios.get(`http://localhost:8080/broad/${id}`, {
+                    headers: {'Authorization': 'Bearer ' + token},
+                })
+                return res.data
+            }
+            return {message: 'Unauthorized'}
+        } catch ({response: {data}}) {
+            return data
+        }
+    }
+)

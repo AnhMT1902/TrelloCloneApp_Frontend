@@ -1,8 +1,8 @@
 import {ITitleList} from "./Interface/List.Interface";
 import {TitleListStyled} from "../../style/lists/TitleList.Styled";
+import {Simulate} from "react-dom/test-utils";
 
 export function TitleList({title, id}: ITitleList) {
-    console.log(id)
     return (
         <TitleListStyled>
             <div className={"main__title__list"}>

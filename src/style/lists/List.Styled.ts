@@ -19,8 +19,29 @@ export const ListStyled = styled.div`
     color: black;
     font-weight: 600;
   }
+
   .list__card__render {
     max-height: calc(100% - 215px);
-    width: calc(100% - 16px);
+    width: calc(100% - 21px);
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+
+  .list__card__render::-webkit-scrollbar {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px;
+    width: 7px;
+  }
+
+  .list__card__render::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgb(253, 253, 253);
+    background-color: #a6a4a4;
+  }
+
+  .list__card__render::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(145, 144, 144, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
   }
 `

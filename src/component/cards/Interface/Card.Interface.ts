@@ -1,7 +1,9 @@
 export interface ICard {
     detail?: string;
-    id?: string
+    _id?: string
     list?: string;
+    index_list?: number;
+    provided?: any
 }
 
 export interface IAddCard {

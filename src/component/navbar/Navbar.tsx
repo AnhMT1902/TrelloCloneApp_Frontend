@@ -1,11 +1,23 @@
 import {NavbarStyled} from "../../style/navbar/Navbar.Styled";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {AddBoard} from "../boards/AddBoard";
+import {useState} from "react";
 
 export function Navbar() {
-    let nameUser: string | null = localStorage.getItem("name");
-    let token: string | null = localStorage.getItem("token");
-    let name = nameUser ? nameUser[0].toUpperCase() : null;
+    const navigate = useNavigate();
+    const [showLogout, setShowLogout] = useState<boolean>(false);
+    const nameUser: string | null = localStorage.getItem("name");
+    const token: string | null = localStorage.getItem("token");
+    const name = nameUser ? nameUser[0].toUpperCase() : null;
+    const showDivLogout = () => {
+        console.log(showLogout)
+        setShowLogout(!showLogout);
+    }
+    const logout = () => {
+        localStorage.clear();
+        navigate('/auth/login');
+    }
+
     return (
         <NavbarStyled>
             <div className="main">
@@ -32,21 +44,31 @@ export function Navbar() {
                         <AddBoard token={token}/>
                     </div>
                 </div>
-                <div className="nav__left">
-                    {name ?
-                        <div style={{
-                            width: "30px",
-                            height: "30px",
-                            marginRight: "20px",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center"
-                        }}>
-                            <button className={'btn__user'}>
-                                {name}
-                            </button>
+                <div>
+
+                    <div onClick={showDivLogout}>
+                        <div className="nav__left">
+                            {name ?
+                                <div style={{
+                                    width: "30px",
+                                    height: "30px",
+                                    marginRight: "20px",
+                                    display: "flex",
+                                    justifyContent: "center",
+                                    alignItems: "center"
+                                }}>
+                                    <button className={'btn__user'}>
+                                        {name}
+                                    </button>
+                                </div>
+                                : null}
                         </div>
-                        : null}
+                    </div>
+                    {showLogout ?
+                        <div className={"dropdown__logout"}>
+                            <button className={'button__logout'}>Profile</button>
+                            <button onClick={logout} className={'button__logout'}>Log out</button>
+                        </div> : null}
                 </div>
             </div>
         </NavbarStyled>
